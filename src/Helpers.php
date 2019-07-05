@@ -1,5 +1,7 @@
 <?php
 
+namespace ZamRom;
+
 if(! function_exists('show'))
 {
 

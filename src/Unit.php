@@ -1,5 +1,7 @@
 <?php
 
+namespace ZamRom;
+
 abstract class Unit
 {
   protected $name;

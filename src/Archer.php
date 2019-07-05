@@ -1,5 +1,7 @@
 <?php
 
+namespace ZamRom;
+
 class Archer extends Unit
 {
   public function attack(Unit $opponent)

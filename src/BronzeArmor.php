@@ -1,5 +1,7 @@
 <?php
 
+namespace ZamRom;
+
 class BronzeArmor implements Armor
 {
   public function absorbDamage($damage)

@@ -1,5 +1,6 @@
 <?php
 
+namespace ZamRom;
 
 class Mage extends Unit
 {

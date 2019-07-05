@@ -1,11 +1,10 @@
 <?php
 
+namespace ZamRom;
+
 require 'src/Helpers.php';
-spl_autoload_register(function ($className){
-  if (file_exists("src/$className.php")){
-  require "src/$className.php";
-  }
-});
+require 'vendor/autoload.php';
+
 $zombie = new Soldier ('Zombie');
 $zamkun = new Mage('ZamKun');
 $zombie->setArmor(new BronzeArmor());

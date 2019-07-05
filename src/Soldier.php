@@ -1,5 +1,7 @@
 <?php
 
+namespace ZamRom;
+
 class Soldier extends Unit
 {
   protected $damage = 60;
