@@ -2,6 +2,8 @@
 
 namespace ZamRom;
 
+use ZamRom\Weapons\Weapon;
+use ZamRom\Armors\Armor;
 abstract class Unit
 {
   protected $name;

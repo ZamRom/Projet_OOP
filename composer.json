@@ -11,6 +11,7 @@
     ],
     "require": {},
     "autoload": {
+      "files": ["src/Helpers.php"],
       "psr-4": {
         "ZamRom\\": "src/"
       }

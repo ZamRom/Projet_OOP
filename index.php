@@ -2,9 +2,10 @@
 
 namespace ZamRom;
 
-require 'src/Helpers.php';
 require 'vendor/autoload.php';
 
+use ZamRom\Weapons\LongSword;
+use ZamRom\Armors\BronzeArmor;
 $zombie = new Soldier ('Zombie');
 $zamkun = new Mage('ZamKun');
 $zombie->setArmor(new BronzeArmor());

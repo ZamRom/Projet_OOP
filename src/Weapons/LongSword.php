@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ZamRom;
+namespace ZamRom\Weapons;
 
 class LongSword implements Weapon
 {

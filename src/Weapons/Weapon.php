@@ -1,6 +1,6 @@
 <?php
 
-namespace ZamRom;
+namespace ZamRom\Weapons;
 
 interface Weapon
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ZamRom;
+namespace ZamRom\Armors;
 
 interface Armor
 {
