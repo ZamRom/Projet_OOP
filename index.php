@@ -10,6 +10,7 @@ abstract class Unit
   protected $hp = 100;
   public $live = true;
   protected $armor;
+  protected $weapon;
 
   public function __construct($name)
   {
@@ -46,6 +47,11 @@ abstract class Unit
   {
     $this->armor=$armor;
   }
+
+  public function setWeapon(Weapon $weapon){
+    $this->weapon=$weapon;
+    $this->damage=$this->weapon->setDamage($this->damage);
+  }
 }
 
 class Soldier extends Unit
@@ -64,6 +70,7 @@ class Soldier extends Unit
     }
     if(!$this->live) return show("eh perate");
     $this->hp = $this->hp - $damage;
+    if( $this->hp <=0) $this->live =false;
     $this->isLive();
   }
 }
@@ -79,7 +86,8 @@ class Archer extends Unit
   public function takeDamage($damage)
   {
     if(!$this->live) return show("eh perate");
-    $this->hp = $this->hp - $damage / 2;
+    $this->hp = $this->hp - $damage;
+    if( $this->hp <=0) $this->live =false;
     $this->isLive();
   }
 }
@@ -114,8 +122,24 @@ class BronzeArmor implements Armor
   }
 }
 
+interface Weapon
+{
+  public function setDamage($damage);
+}
+
+class LongSword implements Weapon
+{
+  public function setDamage($damage){
+    return $damage*5;
+  }
+}
 $zombie = new Soldier ('Zombie');
 $zamkun = new Mage('ZamKun');
 $zombie->setArmor(new BronzeArmor());
 $zamkun->attack($zombie);
+echo ("{$zamkun->getName()} obtiene una nueva espada");
+$zamkun->setWeapon(new LongSword());
+$zamkun->attack($zombie);
+$zombie->attack($zamkun);
+
 
