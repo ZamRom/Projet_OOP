@@ -9,6 +9,8 @@ abstract class Unit
   protected $name;
   protected $hp = 100;
   public $live = true;
+  protected $armor;
+
   public function __construct($name)
   {
     $this->name = $name;
@@ -40,6 +42,10 @@ abstract class Unit
     $this->isLive();
 
   }
+  public function setArmor(Armor $armor)
+  {
+    $this->armor=$armor;
+  }
 }
 
 class Soldier extends Unit
@@ -53,8 +59,11 @@ class Soldier extends Unit
   }
   public function takeDamage($damage)
   {
+    if($this->armor) {
+      $damage = $this->armor->absorbDamage($damage);
+    }
     if(!$this->live) return show("eh perate");
-    $this->hp = $this->hp - $damage / 2;
+    $this->hp = $this->hp - $damage;
     $this->isLive();
   }
 }
@@ -92,11 +101,21 @@ class Mage extends Unit
    $this->isLive();
   }
 }
+interface Armor
+{
+  public function absorbDamage($damage);
+}
+
+class BronzeArmor implements Armor
+{
+  public function absorbDamage($damage)
+  {
+    return $damage/2;
+  }
+}
 
 $zombie = new Soldier ('Zombie');
 $zamkun = new Mage('ZamKun');
+$zombie->setArmor(new BronzeArmor());
 $zamkun->attack($zombie);
-$zombie->attack($zamkun);
-$zombie->attack($zamkun);
-$zombie->attack($zamkun);
-$zamkun->attack($zombie);
+
