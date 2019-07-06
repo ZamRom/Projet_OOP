@@ -8,7 +8,7 @@ use ZamRom\Unit;
 class LongSword implements Weapon
 {
   public function setDamage($damage){
-    return $damage*5;
+    return $damage*2;
   }
   public function getDescription(Unit $attacker, Unit $opponent)
   {

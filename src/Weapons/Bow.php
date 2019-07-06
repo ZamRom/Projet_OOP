@@ -1,18 +1,15 @@
 <?php
 
-
 namespace ZamRom\Weapons;
+use ZamRom\Unit;
 
-class Bow extends Weapon
+class Bow implements Weapon
 {
   public function setDamage($damage){
-    return $damage *2;
+    return $damage*5;
   }
-
-  public function attack(Unit $opponent)
+  public function getDescription(Unit $attacker, Unit $opponent)
   {
-    echo "<p>{$this->name} dispara a {$opponent->getName()}</p>";
-    $opponent->takeDamage($this->damage);
+    return ("{$attacker->getName()} dispara una flecha a {$opponent->getName()}");
   }
-
 }
