@@ -4,13 +4,14 @@ namespace ZamRom;
 
 use ZamRom\Weapons\Weapon;
 use ZamRom\Armors\Armor;
-abstract class Unit
+class Unit
 {
   protected $name;
   protected $hp = 100;
   public $live = true;
   protected $armor;
   protected $weapon;
+  protected $damage = 10;
 
   public function __construct($name)
   {
@@ -35,7 +36,14 @@ abstract class Unit
 
   public function attack(Unit $opponent)
   {
-    echo "<p>{$this->name} ataca a {$opponent}</p>";
+    if ($this->weapon) {
+      show("{$this->weapon->getDescription($this, $opponent)}");
+    } else {
+      echo "<p>{$this->name} ataca a {$opponent->getName()}</p>";
+    }
+
+    $opponent->takeDamage($this->damage);
+
   }
 
   public function takeDamage($damage)
