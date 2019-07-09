@@ -14,3 +14,5 @@ $zombie->setWeapon(new LongSword());
 $zombie->attack($zamkun);
 $zamkun->setWeapon(new Bow());
 $zamkun->attack($zombie);
+$zamkun->attack($zombie);
+$zamkun->attack($zombie);
