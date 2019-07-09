@@ -29,11 +29,6 @@ class Unit
     exit();
   }
 
-  public function move($direction)
-  {
-    show("{$this->name} avanza hacia {$direction}");
-  }
-
   public function attack(Unit $opponent)
   {
     if ($this->weapon) {
@@ -51,7 +46,6 @@ class Unit
     if($this->armor) {
       $damage = $this->armor->absorbDamage($damage);
     }
-    if(!$this->live) return show("eh perate");
     $this->hp = $this->hp - $damage;
     if( $this->hp <=0) $this->live =false;
     $this->isLive();

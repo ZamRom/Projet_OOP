@@ -6,7 +6,7 @@ use ZamRom\Unit;
 class Bow implements Weapon
 {
   public function setDamage($damage){
-    return $damage*5;
+    return $damage * 2;
   }
   public function getDescription(Unit $attacker, Unit $opponent)
   {
